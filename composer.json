@@ -1,0 +1,27 @@
+{
+    "name": "matok/crypto",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matej Kuna aka Matok",
+            "email": "mat.kuna@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Matok\\Crypto\\": "src/"
+        },
+        "files": ["CryptoCommand.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Matok\\Crypto\\Tests\\": "tests/"
+        }
+    }
+}
