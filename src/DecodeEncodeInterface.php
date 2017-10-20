@@ -2,9 +2,7 @@
 
 namespace Matok\Crypto;
 
-interface DecodeEncodeInterface
+interface DecodeEncodeInterface extends DecodeInterface, EncoderInterface
 {
-    public function encode($string);
 
-    public function decode($string);
 }
