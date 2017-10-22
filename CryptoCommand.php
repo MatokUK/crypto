@@ -41,6 +41,11 @@ class CryptoCommand extends Command
                 $decoded = $encoder->decode($encoded);
                 $output->writeln($decoded);
                 break;
+
+
+            // decryption
+            case 'null':
+                break;
         }
     }
 }
