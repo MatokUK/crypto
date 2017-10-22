@@ -4,6 +4,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
+use Matok\Crypto\Ascii;
 use Matok\Crypto\HexToAscii;
 use Matok\Crypto\Base64;
 use Matok\Crypto\BinaryToDecimal;
@@ -38,6 +39,12 @@ class CryptoCommand extends Command
 
             case 'bin2dec':
                 $encoder = new BinaryToDecimal(8);
+                $decoded = $encoder->decode($encoded);
+                $output->writeln($decoded);
+                break;
+
+            case 'ascii':
+                $encoder = new Ascii();
                 $decoded = $encoder->decode($encoded);
                 $output->writeln($decoded);
                 break;

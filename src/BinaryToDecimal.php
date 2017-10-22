@@ -13,19 +13,28 @@ class BinaryToDecimal implements DecodeEncodeInterface
 
     public function encode($string)
     {
-        $chunks = str_split($string, $this->splitSize);
+        $chunks = str_split($string, 1);
+        var_dump($chunks);
 
         $encoded = '';
         foreach ($chunks as $chunk) {
             $encoded .= $this->decimalToBinary($chunk);
         }
 
-        return $chunks;
+        return $encoded;
     }
 
     public function decode($string)
     {
-        return base64_decode($string);
+        $chunks = str_split($string, $this->splitSize);
+        var_dump($chunks);
+
+        $encoded = '';
+        foreach ($chunks as $chunk) {
+            $encoded .= $this->binaryToDecimal($chunk);
+        }
+
+        return $encoded;
     }
 
     private function binaryToDecimal($binaryString)
