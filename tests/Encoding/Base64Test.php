@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Matok\Crypto\Base64;
+use Matok\Crypto\Encoding\Base64;
 
 class BasicTest extends TestCase
 {

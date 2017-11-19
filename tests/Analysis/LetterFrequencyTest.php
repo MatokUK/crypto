@@ -1,24 +1,25 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Matok\Crypto\Base64;
+use Matok\Crypto\Analysis\LetterFrequency;
 
 class LetterFrequencyTest extends TestCase
 {
     /**
-     * @group decode
+     * @group analyse
      */
-    public function testDecode()
+    public function testFrequency()
     {
-        $decoder = new Base64();
-        $this->assertEquals('Matok', $decoder->decode('TWF0b2s='));
-    }
+        $letterFrequency = new LetterFrequency();
+        $analysis = $letterFrequency->analyse($this->readText());
 
+        var_dump($analysis);
+    }
 
     private function readText()
     {
         $text = file_get_contents(__DIR__.'/google-10000-english-usa.txt');
 
-        return $text;
+        return preg_replace('/\s+/', '', $text);
     }
 }

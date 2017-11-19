@@ -15,6 +15,7 @@ class LetterFrequency
         $this->countLetters($text);
         $this->computeFrequencies();
 
+        arsort($this->chars);
         return $this->chars;
     }
 

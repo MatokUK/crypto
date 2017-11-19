@@ -1,6 +1,6 @@
 <?php
 
-namespace Matok\Crypto;
+namespace Matok\Crypto\Encoding;
 
 class BinaryToDecimal implements DecodeEncodeInterface
 {
@@ -11,19 +11,6 @@ class BinaryToDecimal implements DecodeEncodeInterface
         $this->splitSize = $splitSize;
     }
 
-    public function encode($string)
-    {
-        $chunks = str_split($string, 1);
-        var_dump($chunks);
-
-        $encoded = '';
-        foreach ($chunks as $chunk) {
-            $encoded .= $this->decimalToBinary($chunk);
-        }
-
-        return $encoded;
-    }
-
     public function decode($string)
     {
         $chunks = str_split($string, $this->splitSize);
@@ -32,6 +19,19 @@ class BinaryToDecimal implements DecodeEncodeInterface
         $encoded = '';
         foreach ($chunks as $chunk) {
             $encoded .= $this->binaryToDecimal($chunk);
+        }
+
+        return $encoded;
+    }
+
+    public function encode($number)
+    {
+        $chunks = str_split($number, 1);
+        var_dump($chunks);
+
+        $encoded = '';
+        foreach ($chunks as $chunk) {
+            $encoded .= $this->decimalToBinary($chunk);
         }
 
         return $encoded;

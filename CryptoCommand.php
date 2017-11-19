@@ -43,14 +43,15 @@ class CryptoCommand extends Command
                 $output->writeln($decoded);
                 break;
 
-            // decryption
-            case 'null':
-                break;
             case 'ascii':
                 $encoder = new Ascii();
                 $decoded = $encoder->decode($encoded);
                 $output->writeln($decoded);
                 break;
+
+            case 'null':
+                break;
+
         }
     }
 }

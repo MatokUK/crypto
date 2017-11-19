@@ -5,7 +5,7 @@ namespace Matok\Crypto\Encryption;
 /**
  * https://en.wikipedia.org/wiki/Null_cipher
  */
-class NullCipher implements DecodeInterface
+class NullCipher implements DecryptInterface
 {
     /** @var \InfiniteIterator */
     private $key;
@@ -16,7 +16,8 @@ class NullCipher implements DecodeInterface
             $key = [$key];
         }
 
-        $this->key = new \InfiniteIterator($key);
+        $this->key = new \InfiniteIterator(new \ArrayIterator($key));
+        $this->key->rewind();
     }
 
     public function decrypt($message)
