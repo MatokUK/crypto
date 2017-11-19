@@ -4,5 +4,5 @@ namespace Matok\Crypto\Encoding;
 
 interface EncodeInterface
 {
-    public function encode($number);
+    public function encode($value);
 }
